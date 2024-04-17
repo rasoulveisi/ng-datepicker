@@ -1,0 +1,198 @@
+.datepicker_pckg {
+  display: flex;
+  background-color: #fff;
+  position: relative;
+  box-shadow: 0px 2px 6px rgba(#000, 0.2);
+  z-index: 1;
+  cursor: auto;
+
+  &--calendar {
+    padding: 0;
+
+    p-calendar span {
+      width: 100%;
+    }
+
+    p-calendar table span {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    p-calendar .p-datepicker {
+      border: 0;
+      padding: 0;
+
+      thead {
+        border-bottom: 12px solid transparent;
+      }
+
+      th > span {
+        color: #697077;
+        text-align: center;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 16px;
+      }
+
+      .p-datepicker-header {
+        padding: 0;
+        padding-bottom: 16px;
+        margin-top: 16px;
+
+        .p-datepicker-prev,
+        .p-datepicker-next {
+          padding: 0;
+        }
+
+        .p-datepicker-title {
+          color: #343a3f;
+          text-align: center;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 150%;
+
+          button{
+            border: none;
+            background: none;
+            pointer-events: none;
+          }
+        }
+      }
+
+      td > span {
+        width: 36px !important;
+        height: 36px !important;
+        margin: 0;
+        border-radius: 4px;
+      }
+
+      td {
+        padding: 0 8px 8px 0;
+
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+
+      th {
+        padding: 0 8px 0 0;
+
+        &:last-child {
+          padding: 0;
+        }
+      }
+
+    }
+
+    .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+      padding: 16px;
+      margin-bottom: 0px;
+    }
+
+    p-tabview .p-tabview-nav li .p-tabview-nav-link:not(.p-disabled):focus {
+      outline: 0 none;
+      outline-offset: 0;
+      box-shadow: none;
+    }
+
+    p-tabview.tab-filter-calendar .p-tabview-nav {
+      flex-direction: column;
+    }
+
+    .p-tabview {
+      a:hover {
+        text-decoration: none;
+      }
+    }
+
+    p-tabview.tab-calendar .p-tabview-nav {
+      background: #ffffff;
+      border: 0;
+      border-width: 0 0 2px 0;
+      margin-bottom: 0px;
+    }
+
+    .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+      background: #ffffff;
+      color: #237cb3;
+      border-bottom: 2px solid #237cb3;
+    }
+
+    .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+      border-bottom-width: 1px;
+    }
+
+    .range-custom {
+      color: #fff;
+      background: #237cb3;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &--sidemenu {
+    border-right: 1px solid #dde1e6;
+    margin: 16px 0;
+    padding: 0 4px;
+    display: flex;
+    flex-direction: column;
+    min-width: 202px;
+    min-height: 411px;
+
+    .container-button {
+      width: 100%;
+      padding: 0 12px;
+
+      & .reset-btn {
+        background: #f2f4f8;
+      }
+    }
+
+    ul {
+      text-align: left;
+      padding: 0;
+      list-style: none;
+      margin-bottom: 0;
+      display: flex;
+      flex-direction: column;
+
+      li {
+        font-size: 14px;
+        padding: 8px 12px;
+        border-radius: 4px;
+        margin: 0;
+        cursor: pointer;
+
+        &:hover {
+          background: #f0f2f5;
+        }
+      }
+
+      li.actived {
+        color: #237cb3;
+        background: #e0f3ff;
+      }
+    }
+  }
+}
+
+.noShadow{
+  box-shadow: unset !important;
+}
+
+.p-hidden-accessible {
+  display: none;
+}
+
+table {
+  span{
+    text-align: center;
+  }
+}
