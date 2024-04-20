@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, ElementRef, EventEmitter, HostListener, Input, Output, inject } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Input, Output, ViewEncapsulation, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PrimeNGConfig } from 'primeng/api';
 import { CalendarModule } from 'primeng/calendar';
@@ -13,6 +13,7 @@ import { TabViewModule } from 'primeng/tabview';
   imports: [CalendarModule, FormsModule, NgClass, TabViewModule],
   templateUrl: './datepicker.component.html',
   styleUrl: './datepicker.component.scss',
+  // encapsulation: ViewEncapsulation.None
 })
 export class DatepickerComponent {
   private primeNgConfig = inject(PrimeNGConfig);

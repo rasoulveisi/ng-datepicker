@@ -1,31 +1,31 @@
 @if (isShow) {
-<section class="datepicker_pckg" [class.noShadow]="!config['isListItemShow'] && !config['showButtonBar']">
+<section class="flex bg-white relative shadow-[0px_2px_6px_rgba(0,0,0,0.2)] z-[1] cursor-auto" [class.noShadow]="!config['isListItemShow'] && !config['showButtonBar']">
   @if (config['isListItemShow']) {
-  <div #sidebar class="datepicker_pckg--sidemenu">
-    <ul class="flex-grow-1">
+  <div #sidebar class="my-4 mx-0 flex flex-col min-w-56 min-h-[420px] justify-between">
+    <ul class="flex-grow-1 text-left p-0 list-none mb-0 flex flex-col">
       @for (item of listSelectDates; track item) {
-      <li [id]="item.value" [class.actived]="selectedType === item.value" (click)="selectRangeDateCustom(item.value, $event)" [textContent]="item.label"></li>
+      <li class="text-sm py-2 px-3 rounded m-0 cursor-pointer hover:bg-[#f0f2f5]" [id]="item.value" [ngClass]="{'bg-[#e0f3ff] text-[#237cb3]': selectedType === item.value}" [class.actived]="selectedType === item.value" (click)="selectRangeDateCustom(item.value, $event)" [textContent]="item.label"></li>
       }
     </ul>
-    <div class="container-button">
-      <button [disabled]="!dateRange || dateRange.length === 0" (click)="confirm()" class="btn w-100 btn-primary">
+    <div class="w-full py-0 px-3">
+      <button [disabled]="!dateRange || dateRange.length === 0" (click)="confirm()" class="mt-1 w-full py-1 text-white bg-[#237cb3] border-[#237cb3] rounded">
         {{"Apply Filter"}}
       </button>
       @if (dateRange && dateRange.length > 0) {
-      <button (click)="reset()" class="mt-1 btn w-100 reset-btn">
+      <button (click)="reset()" class="mt-1 w-full py-1 bg-[#f2f4f8] border-[#237cb3] rounded">
         {{"Reset Filter"}}
       </button>
       }
     </div>
   </div>
   }
-  <div class="datepicker_pckg--calendar" [class.px-3]="!config['isInputShow']">
+  <div class="p-0" [ngClass]="{'px-3': !config['isInputShow']}">
     @if (config['isTabShow']) {
-    <p-tabView class="tab-calendar" [(activeIndex)]="tabIndex" (onChange)="onChangeTab($event.index)">
-      <p-tabPanel [header]="'Between'"> </p-tabPanel>
-      <p-tabPanel [header]="'Before' "> </p-tabPanel>
-      <p-tabPanel [header]="'On' "> </p-tabPanel>
-      <p-tabPanel [header]="'After' "> </p-tabPanel>
+    <p-tabView [(activeIndex)]="tabIndex" (onChange)="onChangeTab($event.index)" styleClass="tab-calendar">
+      <p-tabPanel header="Between"> </p-tabPanel>
+      <p-tabPanel header="Before"> </p-tabPanel>
+      <p-tabPanel header="On"> </p-tabPanel>
+      <p-tabPanel header="After"> </p-tabPanel>
     </p-tabView>
     }
     @if (config['isInputShow']) {
@@ -50,7 +50,7 @@
       }
     </div>
     }
-    <p-calendar [selectionMode]="selectedMode" [firstDayOfWeek]="1" [numberOfMonths]="1" [appendTo]="'body'" [readonlyInput]="true" placeholder="Pick a ready date" [showButtonBar]="false"
+    <p-calendar styleClass="calendar-datepicker" [selectionMode]="selectedMode" [firstDayOfWeek]="1" [numberOfMonths]="1" [appendTo]="'body'" [readonlyInput]="true" placeholder="Pick a ready date" [showButtonBar]="false"
       [inline]="true" [minDate]="config['minDate']" [maxDate]="config['maxDate']" [dateFormat]="'dd-MM-yyyy'" [(ngModel)]="dateRangeModel" (onSelect)="changeCalendar()"
       (onMonthChange)="onChangeMonthOrYear()" (onYearChange)="onChangeMonthOrYear()" #datepicker>
       <ng-template pTemplate="date" let-date>
